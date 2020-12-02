@@ -7,6 +7,12 @@ var apiRouter = require('./routes/api');
 
 var app = express();
 
+const basicAuth = require('express-basic-auth')
+ 
+app.use(basicAuth({
+    users: { 'admin': 'mappingsecret' }
+}))
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

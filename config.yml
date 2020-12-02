@@ -1,4 +1,4 @@
 tririgaCredentials:
-  url: ""
-  username: ""
-  password: ""
+  url: "https://services-apac2.skytap.com:8421"
+  username: "tbiuser"
+  password: "1Password*"
