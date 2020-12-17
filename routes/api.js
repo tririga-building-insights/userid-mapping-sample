@@ -1,7 +1,6 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
-const util = require('util');
 const yaml = require('js-yaml');
 const request = require('request');
 const parse = require('csv-parse/lib/sync')
@@ -50,9 +49,8 @@ router.get('/', function (req, response, next) {
             return;
         }
         let tririgaUrl = config.tririgaCredentials.url + peopleOSLC + req.query.floorPath;
-        let encodedUrl = encodeURI(tririgaUrl);
         let tririgaReqOptions = {
-            url: encodedUrl,
+            url: tririgaUrl,
             method: "GET",
             auth: {
                 'user': config.tririgaCredentials.username,
@@ -66,7 +64,6 @@ router.get('/', function (req, response, next) {
                 
             let oslcJson = JSON.parse(triBody);
 
-            let peopleIds = [];
             let final = {
                 map : []
             };
@@ -98,4 +95,3 @@ router.get('/', function (req, response, next) {
 });
 
 module.exports = router;
-
