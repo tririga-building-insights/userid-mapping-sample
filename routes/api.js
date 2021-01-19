@@ -73,9 +73,9 @@ router.get('/', function (req, response, next) {
                     for (const people of memberRecord['spi:people']) {
                         if(people[req.query.idField]) {
                             let matchId = people[req.query.idField];
-                            console.log(matchId);
+                            //console.log(matchId);
                             for (const csv of csvRecords) {
-                                console.log(csv);
+                                //console.log(csv);
                                 if(matchId === csv.userId) {
                                     final.map.push(csv);
                                 }
